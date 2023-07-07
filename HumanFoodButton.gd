@@ -8,7 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_parent().get_parent().get_node("Shop").visible:
+	text = "Use Human Flesh (" + str(get_parent().humanFlesh) + ")";
+	if get_parent().humanFlesh == 0:
 		disabled = true;
 	else:
 		disabled = false;
+	print(disabled);

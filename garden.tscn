@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bukxt65010b5r"]
+[gd_scene load_steps=8 format=3 uid="uid://bukxt65010b5r"]
 
 [ext_resource type="Script" path="res://garden.gd" id="1_i13sx"]
 [ext_resource type="PackedScene" uid="uid://c5ae5sj61p2t4" path="res://shop.tscn" id="4_5x6th"]
 [ext_resource type="Script" path="res://ShopButton.gd" id="4_tsplh"]
+[ext_resource type="Script" path="res://HumanFoodButton.gd" id="5_jxy8q"]
 [ext_resource type="Script" path="res://EnergyText.gd" id="5_ri7ku"]
 [ext_resource type="PackedScene" uid="uid://c7qbpjjlhkriy" path="res://Pens/pen.tscn" id="5_y2w6d"]
 
@@ -24,27 +25,57 @@ text = "Energy:"
 script = ExtResource("5_ri7ku")
 metadata/_edit_use_anchors_ = true
 
-[node name="BuyHumanButton" type="Button" parent="."]
-offset_left = -564.0
-offset_top = 256.0
-offset_right = -421.0
-offset_bottom = 312.0
-text = "Buy Human (ƥ400)"
-metadata/_edit_use_anchors_ = true
-
 [node name="Pen" parent="." instance=ExtResource("5_y2w6d")]
-
-[node name="ShopButton" type="Button" parent="."]
-offset_left = 431.0
-offset_top = 267.0
-offset_right = 568.0
-offset_bottom = 316.0
-text = "Shop"
-script = ExtResource("4_tsplh")
-metadata/_edit_use_anchors_ = true
 
 [node name="Shop" parent="." instance=ExtResource("4_5x6th")]
 visible = false
 
-[connection signal="pressed" from="BuyHumanButton" to="." method="_on_buy_human_button_pressed"]
-[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
+[node name="HumanFoodButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = 280.0
+offset_right = 83.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use Human Flesh (0)"
+script = ExtResource("5_jxy8q")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -563.5
+offset_top = 280.0
+offset_right = 563.5
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 930
+columns = 2
+
+[node name="BuyHumanButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Buy Human (ƥ400)"
+metadata/_edit_use_anchors_ = true
+
+[node name="ShopButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Shop"
+script = ExtResource("4_tsplh")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="grill_button_pressed" from="Shop" to="." method="_on_shop_grill_button_pressed"]
+[connection signal="healthy_button_pressed" from="Shop" to="." method="_on_shop_healthy_button_pressed"]
+[connection signal="junk_button_pressed" from="Shop" to="." method="_on_shop_junk_button_pressed"]
+[connection signal="shovel_button_pressed" from="Shop" to="." method="_on_shop_shovel_button_pressed"]
+[connection signal="pressed" from="HumanFoodButton" to="." method="_on_human_food_button_pressed"]
+[connection signal="pressed" from="GridContainer/BuyHumanButton" to="." method="_on_buy_human_button_pressed"]
+[connection signal="pressed" from="GridContainer/ShopButton" to="." method="_on_shop_button_pressed"]

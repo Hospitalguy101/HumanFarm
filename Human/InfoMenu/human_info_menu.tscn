@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://duvjlws3ll55f"]
+[gd_scene load_steps=6 format=3 uid="uid://duvjlws3ll55f"]
 
+[ext_resource type="Script" path="res://Human/InfoMenu/human_info_menu.gd" id="1_daknb"]
 [ext_resource type="Texture2D" uid="uid://d3ur7dtdhsk6a" path="res://waa.png" id="1_qmbjo"]
 [ext_resource type="Script" path="res://Human/InfoMenu/Health Text.gd" id="2_c5gw2"]
 [ext_resource type="Script" path="res://Human/InfoMenu/Happiness Text.gd" id="3_jxuma"]
 [ext_resource type="Script" path="res://Human/InfoMenu/GrowthText.gd" id="4_5irjb"]
 
 [node name="HumanInfoMenu" type="Node2D"]
+script = ExtResource("1_daknb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.8, 0.166)
@@ -20,17 +22,27 @@ text = "Health:"
 script = ExtResource("2_c5gw2")
 
 [node name="Happiness Text" type="Label" parent="."]
-offset_left = -41.0
+offset_left = -248.0
 offset_top = -19.0
-offset_right = 97.0
+offset_right = -110.0
 offset_bottom = 21.0
 text = "Happiness:"
 script = ExtResource("3_jxuma")
 
 [node name="GrowthText" type="Label" parent="."]
-offset_left = 149.0
-offset_top = -21.0
-offset_right = 393.0
-offset_bottom = 19.0
+offset_left = -117.0
+offset_top = -20.0
+offset_right = 127.0
+offset_bottom = 20.0
 text = "Growth: "
 script = ExtResource("4_5irjb")
+
+[node name="KillButton" type="Button" parent="."]
+offset_left = 139.0
+offset_top = -21.0
+offset_right = 252.0
+offset_bottom = 10.0
+text = "Harvest Flesh"
+
+[connection signal="pressed" from="KillButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="KillButton" to="." method="_on_kill_button_pressed"]

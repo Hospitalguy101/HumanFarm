@@ -1,11 +1,14 @@
-[gd_scene format=3 uid="uid://c5ae5sj61p2t4"]
+[gd_scene load_steps=2 format=3 uid="uid://c5ae5sj61p2t4"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_75ioi"]
 
 [node name="Shop" type="PopupPanel"]
 title = "Shop"
 initial_position = 1
-size = Vector2i(247, 80)
+size = Vector2i(298, 80)
 visible = true
 borderless = false
+script = ExtResource("1_75ioi")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 8
@@ -13,19 +16,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -119.5
-offset_top = -36.0
-offset_right = 119.5
-offset_bottom = 36.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 294.0
+offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="BedButton" type="Button" parent="GridContainer"]
+[node name="HealthyButton" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Bed (ƥ20)"
+text = "Healthy Food (ƥ20)"
 
 [node name="JunkButton" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -38,3 +41,8 @@ text = "Shovel (ƥ50)"
 [node name="Grill Button" type="Button" parent="GridContainer"]
 layout_mode = 2
 text = "Grill (ƥ100)"
+
+[connection signal="pressed" from="GridContainer/HealthyButton" to="." method="_on_healthy_button_pressed"]
+[connection signal="pressed" from="GridContainer/JunkButton" to="." method="_on_junk_button_pressed"]
+[connection signal="pressed" from="GridContainer/ShovelButton" to="." method="_on_shovel_button_pressed"]
+[connection signal="pressed" from="GridContainer/Grill Button" to="." method="_on_grill_button_pressed"]
