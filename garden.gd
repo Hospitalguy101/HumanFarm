@@ -26,3 +26,7 @@ func _on_buy_human_button_pressed():
 	else:
 		money -= 400;
 		get_node("Pen").addHuman();
+
+
+func _on_shop_button_pressed():
+	$Shop.visible = true;

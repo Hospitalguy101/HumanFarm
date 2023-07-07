@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c5ae5sj61p2t4"]
+
+[node name="Shop" type="PopupPanel"]
+title = "Shop"
+initial_position = 1
+size = Vector2i(247, 80)
+visible = true
+borderless = false
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -36.0
+offset_right = 119.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="BedButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Bed (ƥ20)"
+
+[node name="JunkButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Junk Food (ƥ20)"
+
+[node name="ShovelButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Shovel (ƥ50)"
+
+[node name="Grill Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Grill (ƥ100)"

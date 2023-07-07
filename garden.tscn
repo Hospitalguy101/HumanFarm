@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bukxt65010b5r"]
+[gd_scene load_steps=7 format=3 uid="uid://bukxt65010b5r"]
 
 [ext_resource type="Script" path="res://garden.gd" id="1_i13sx"]
+[ext_resource type="PackedScene" uid="uid://c5ae5sj61p2t4" path="res://shop.tscn" id="4_5x6th"]
+[ext_resource type="Script" path="res://ShopButton.gd" id="4_tsplh"]
 [ext_resource type="Script" path="res://EnergyText.gd" id="5_ri7ku"]
 [ext_resource type="PackedScene" uid="uid://c7qbpjjlhkriy" path="res://Pens/pen.tscn" id="5_y2w6d"]
 
@@ -20,6 +22,7 @@ offset_bottom = -235.0
 theme = SubResource("Theme_hh43o")
 text = "Energy:"
 script = ExtResource("5_ri7ku")
+metadata/_edit_use_anchors_ = true
 
 [node name="BuyHumanButton" type="Button" parent="."]
 offset_left = -564.0
@@ -27,7 +30,21 @@ offset_top = 256.0
 offset_right = -421.0
 offset_bottom = 312.0
 text = "Buy Human (ƥ400)"
+metadata/_edit_use_anchors_ = true
 
 [node name="Pen" parent="." instance=ExtResource("5_y2w6d")]
 
+[node name="ShopButton" type="Button" parent="."]
+offset_left = 431.0
+offset_top = 267.0
+offset_right = 568.0
+offset_bottom = 316.0
+text = "Shop"
+script = ExtResource("4_tsplh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Shop" parent="." instance=ExtResource("4_5x6th")]
+visible = false
+
 [connection signal="pressed" from="BuyHumanButton" to="." method="_on_buy_human_button_pressed"]
+[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
