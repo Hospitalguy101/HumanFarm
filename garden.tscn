@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bukxt65010b5r"]
+
+[ext_resource type="Script" path="res://garden.gd" id="1_i13sx"]
+[ext_resource type="Script" path="res://EnergyText.gd" id="5_ri7ku"]
+[ext_resource type="PackedScene" uid="uid://c7qbpjjlhkriy" path="res://Pens/pen.tscn" id="5_y2w6d"]
+
+[sub_resource type="Theme" id="Theme_hh43o"]
+default_font_size = 50
+
+[node name="Garden" type="Node2D"]
+script = ExtResource("1_i13sx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="EnergyText" type="Label" parent="."]
+offset_left = -571.0
+offset_top = -327.0
+offset_right = 369.0
+offset_bottom = -235.0
+theme = SubResource("Theme_hh43o")
+text = "Energy:"
+script = ExtResource("5_ri7ku")
+
+[node name="BuyHumanButton" type="Button" parent="."]
+offset_left = -564.0
+offset_top = 256.0
+offset_right = -421.0
+offset_bottom = 312.0
+text = "Buy Human (ƥ400)"
+
+[node name="Pen" parent="." instance=ExtResource("5_y2w6d")]
+
+[connection signal="pressed" from="BuyHumanButton" to="." method="_on_buy_human_button_pressed"]

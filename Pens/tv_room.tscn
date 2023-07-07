@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ox50nsi7ead6"]
+
+[ext_resource type="Texture2D" uid="uid://d3ur7dtdhsk6a" path="res://waa.png" id="1_4hgvp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4lern"]
+font_size = 30
+
+[node name="TVRoom" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4hgvp")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -30.5
+offset_right = 112.5
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TV ROOM"
+label_settings = SubResource("LabelSettings_4lern")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

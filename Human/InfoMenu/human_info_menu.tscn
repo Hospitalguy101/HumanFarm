@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://duvjlws3ll55f"]
+
+[ext_resource type="Texture2D" uid="uid://d3ur7dtdhsk6a" path="res://waa.png" id="1_qmbjo"]
+[ext_resource type="Script" path="res://Human/InfoMenu/Health Text.gd" id="2_c5gw2"]
+[ext_resource type="Script" path="res://Human/InfoMenu/Happiness Text.gd" id="3_jxuma"]
+[ext_resource type="Script" path="res://Human/InfoMenu/GrowthText.gd" id="4_5irjb"]
+
+[node name="HumanInfoMenu" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.8, 0.166)
+texture = ExtResource("1_qmbjo")
+
+[node name="Health Text" type="Label" parent="."]
+offset_left = -337.0
+offset_top = -20.0
+offset_right = -187.0
+offset_bottom = 20.0
+text = "Health:"
+script = ExtResource("2_c5gw2")
+
+[node name="Happiness Text" type="Label" parent="."]
+offset_left = -41.0
+offset_top = -19.0
+offset_right = 97.0
+offset_bottom = 21.0
+text = "Happiness:"
+script = ExtResource("3_jxuma")
+
+[node name="GrowthText" type="Label" parent="."]
+offset_left = 149.0
+offset_top = -21.0
+offset_right = 393.0
+offset_bottom = 19.0
+text = "Growth: "
+script = ExtResource("4_5irjb")
