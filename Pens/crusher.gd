@@ -13,6 +13,8 @@ func _process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent().is_in_group("human"):
+		$Blood.emitting = true
+		$crunch.playing = true
 		var pen = area.get_parent().get_parent();
 		for n in pen.get_children():
 			if n.is_in_group("human"):

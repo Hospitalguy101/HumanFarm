@@ -18,7 +18,8 @@ func _process(delta):
 		if h.is_in_group("human"):
 			happySum += h.happiness;
 			numHumans += 1;
-	avgHappiness = happySum/numHumans;
+	if numHumans > 0:
+		avgHappiness = happySum/numHumans;
 	
 	#Revolution lose con
 	if (avgHappiness < 0 and wallLevel <= 2 and numHumans > 8):

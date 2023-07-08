@@ -17,7 +17,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if $Music.playing == false:
+		$Music.playing = true
 	
 
 func endGame(reason):

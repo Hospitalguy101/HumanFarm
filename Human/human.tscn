@@ -163,6 +163,7 @@ shape = SubResource("RectangleShape2D_jopwt")
 shape = SubResource("CapsuleShape2D_aoq1h")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_c1cip")
 animation = &"Idle"
 script = ExtResource("18_0l5wy")
