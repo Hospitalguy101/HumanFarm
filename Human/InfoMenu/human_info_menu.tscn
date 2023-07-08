@@ -36,13 +36,3 @@ offset_right = 127.0
 offset_bottom = 20.0
 text = "Growth: "
 script = ExtResource("4_5irjb")
-
-[node name="KillButton" type="Button" parent="."]
-offset_left = 139.0
-offset_top = -21.0
-offset_right = 252.0
-offset_bottom = 10.0
-text = "Harvest Flesh"
-
-[connection signal="pressed" from="KillButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="KillButton" to="." method="_on_kill_button_pressed"]

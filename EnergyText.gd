@@ -8,4 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = "Energy: " + str(get_parent().energy);
+	text = "Energy: ƥ" + str(get_parent().energy);

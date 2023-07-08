@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bukxt65010b5r"]
+[gd_scene load_steps=10 format=3 uid="uid://bukxt65010b5r"]
 
 [ext_resource type="Script" path="res://garden.gd" id="1_i13sx"]
 [ext_resource type="PackedScene" uid="uid://c5ae5sj61p2t4" path="res://shop.tscn" id="4_5x6th"]
@@ -6,12 +6,22 @@
 [ext_resource type="Script" path="res://HumanFoodButton.gd" id="5_jxy8q"]
 [ext_resource type="Script" path="res://EnergyText.gd" id="5_ri7ku"]
 [ext_resource type="PackedScene" uid="uid://c7qbpjjlhkriy" path="res://Pens/pen.tscn" id="5_y2w6d"]
+[ext_resource type="PackedScene" uid="uid://cp868w2t1687d" path="res://Pens/crusher.tscn" id="7_t58f8"]
+[ext_resource type="Texture2D" uid="uid://bxrakkmxnvsaf" path="res://Grass.png" id="8_xx4p5"]
 
 [sub_resource type="Theme" id="Theme_hh43o"]
 default_font_size = 50
 
 [node name="Garden" type="Node2D"]
 script = ExtResource("1_i13sx")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(25, -15)
+scale = Vector2(0.134766, 0.122559)
+texture = ExtResource("8_xx4p5")
+region_enabled = true
+region_rect = Rect2(-7849, -4032, 11985, 7317)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -26,6 +36,7 @@ script = ExtResource("5_ri7ku")
 metadata/_edit_use_anchors_ = true
 
 [node name="Pen" parent="." instance=ExtResource("5_y2w6d")]
+position = Vector2(-387, -126)
 
 [node name="Shop" parent="." instance=ExtResource("4_5x6th")]
 visible = false
@@ -71,6 +82,13 @@ layout_mode = 2
 text = "Shop"
 script = ExtResource("4_tsplh")
 metadata/_edit_use_anchors_ = true
+
+[node name="Crusher" parent="." instance=ExtResource("7_t58f8")]
+position = Vector2(446, 84)
+
+[node name="temp cam" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(1.5, 1.5)
 
 [connection signal="cactus_button_pressed" from="Shop" to="." method="_on_shop_cactus_button_pressed"]
 [connection signal="coffee_button_pressed" from="Shop" to="." method="_on_shop_coffee_button_pressed"]
