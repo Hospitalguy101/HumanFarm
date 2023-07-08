@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://bukxt65010b5r"]
+[gd_scene load_steps=20 format=3 uid="uid://bukxt65010b5r"]
 
 [ext_resource type="Script" path="res://garden.gd" id="1_i13sx"]
 [ext_resource type="Shader" path="res://dissolve.gdshader" id="2_ruk0c"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_tpf2d"]
-[ext_resource type="Texture2D" uid="uid://ccbeqoiov8ymo" path="res://Shaders/perlin_64.png.webp" id="3_f8qy4"]
 [ext_resource type="Texture2D" uid="uid://bjvgs0rbopem8" path="res://Untitled_Artwork-1 7.png" id="3_urdfx"]
 [ext_resource type="PackedScene" uid="uid://c5ae5sj61p2t4" path="res://shop.tscn" id="4_5x6th"]
 [ext_resource type="Texture2D" uid="uid://b1e56woh57as7" path="res://Shaders/PerlinExample.png" id="4_tchdf"]
@@ -12,14 +11,14 @@
 [ext_resource type="Script" path="res://HumanFoodButton.gd" id="5_jxy8q"]
 [ext_resource type="Script" path="res://EnergyText.gd" id="5_ri7ku"]
 [ext_resource type="PackedScene" uid="uid://c7qbpjjlhkriy" path="res://Pens/pen.tscn" id="5_y2w6d"]
+[ext_resource type="PackedScene" uid="uid://lugdus72815e" path="res://Grass/grass.tscn" id="6_6mmww"]
 [ext_resource type="Script" path="res://Sun.gd" id="6_bxs51"]
 [ext_resource type="PackedScene" uid="uid://cp868w2t1687d" path="res://Pens/crusher.tscn" id="7_t58f8"]
-[ext_resource type="AudioStream" uid="uid://c2m0dsqrg4mko" path="res://Sound/main garden theme - 7:7:23, 9.50 PM.mp3" id="15_no5hh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pshc2"]
 shader = ExtResource("2_ruk0c")
-shader_parameter/dissolve_value = 0.465
-shader_parameter/dissolve_texture = ExtResource("3_f8qy4")
+shader_parameter/dissolve_value = 0.57
+shader_parameter/dissolve_texture = ExtResource("4_tchdf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kyggq"]
 shader = ExtResource("2_ruk0c")
@@ -50,10 +49,11 @@ script = ExtResource("1_i13sx")
 
 [node name="Grass" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_pshc2")
-offset_left = -959.0
-offset_top = -552.0
-offset_right = 992.0
-offset_bottom = 538.0
+offset_left = -4333.0
+offset_top = -2704.0
+offset_right = -2382.0
+offset_bottom = -1614.0
+scale = Vector2(4.83143, 5.58786)
 mouse_filter = 2
 color = Color(0, 0.333333, 0.172549, 1)
 
@@ -191,10 +191,17 @@ visible = false
 layout_mode = 2
 text = "Buy Pen"
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_no5hh")
-volume_db = -5.0
-autoplay = true
+[node name="Grass1" parent="." instance=ExtResource("6_6mmww")]
+position = Vector2(796, -146)
+
+[node name="Grass2" parent="." instance=ExtResource("6_6mmww")]
+position = Vector2(870, -146)
+
+[node name="Grass3" parent="." instance=ExtResource("6_6mmww")]
+position = Vector2(949, -146)
+
+[node name="Grass4" parent="." instance=ExtResource("6_6mmww")]
+position = Vector2(1025, -146)
 
 [connection signal="cactus_button_pressed" from="Shop" to="." method="_on_shop_cactus_button_pressed"]
 [connection signal="coffee_button_pressed" from="Shop" to="." method="_on_shop_coffee_button_pressed"]

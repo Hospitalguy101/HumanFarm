@@ -1,9 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://d0susb7s0u31u"]
 
 [ext_resource type="Texture2D" uid="uid://bqjmrngtwyps1" path="res://Grass/random_noise.png" id="1_8rotm"]
-[ext_resource type="Texture2D" uid="uid://bre55x7goanml" path="res://Grass/pixel_art_grass_spritesheet.png" id="2_6cu5f"]
+[ext_resource type="Texture2D" uid="uid://cj3swcg7cpiw6" path="res://Grass/Untitled_Artwork 78.png" id="2_p52qt"]
 [ext_resource type="Texture2D" uid="uid://c6kx3vu1po08" path="res://icon.svg" id="3_lk83q"]
 [ext_resource type="Texture2D" uid="uid://d8lo0kaerhsf" path="res://Grass/noise.tres" id="3_rwhbs"]
+[ext_resource type="Shader" path="res://Grass/grassparticle.gdshader" id="4_jegkt"]
 
 [sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;
@@ -89,50 +90,19 @@ shader_parameter/wind_strength = 0.4
 shader_parameter/player_pos = Vector2(0, 0)
 shader_parameter/player_radius = 30.0
 shader_parameter/player_radius_blend = 30.0
-shader_parameter/spritesheet = ExtResource("2_6cu5f")
+shader_parameter/spritesheet = ExtResource("2_p52qt")
 shader_parameter/random_noise = ExtResource("1_8rotm")
 shader_parameter/wind_noise = ExtResource("3_rwhbs")
 
-[sub_resource type="Shader" id="5"]
-code = "shader_type particles;
-
-uniform float rows = 16;
-uniform float spacing = 4.0;
-
-void start() {
-	// obtain our position based on which particle we're rendering
-	vec3 pos = vec3(0.0, 0.0, 0.0);
-	pos.y = float(INDEX);
-	pos.x = mod(pos.y, rows);
-	pos.y = (pos.y - pos.x) / rows;
-	
-	// center this
-	pos.x -= rows * 0.5;
-	pos.y -= rows * 0.5;
-	
-	// and now apply our spacing
-	pos *= spacing;
-	
-	// now center on our particle location but within our spacing
-	pos.x += EMISSION_TRANSFORM[3][0] - mod(EMISSION_TRANSFORM[3][0], spacing);
-	pos.y += EMISSION_TRANSFORM[3][1] - mod(EMISSION_TRANSFORM[3][1], spacing);
-	
-	// update our transform to place
-	TRANSFORM[3][0] = pos.x;
-	TRANSFORM[3][1] = pos.y;
-	
-	// Pass world position to instances
-	CUSTOM.xy = pos.xy;
-}
-"
-
-[sub_resource type="ShaderMaterial" id="6"]
-shader = SubResource("5")
-shader_parameter/rows = 40.0
-shader_parameter/spacing = 8.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48awa"]
+shader = ExtResource("4_jegkt")
+shader_parameter/scale_min = null
+shader_parameter/scale_max = null
+shader_parameter/rows = 16.0
+shader_parameter/spacing = 4.0
 
 [node name="GrassParticles" type="GPUParticles2D"]
 material = SubResource("2")
 amount = 1000
-process_material = SubResource("6")
+process_material = SubResource("ShaderMaterial_48awa")
 texture = ExtResource("3_lk83q")

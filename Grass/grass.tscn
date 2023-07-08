@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://lugdus72815e"]
+[gd_scene load_steps=5 format=3 uid="uid://lugdus72815e"]
 
 [ext_resource type="Script" path="res://Grass/2D_Grass_Instancing.gd" id="1_eqxy3"]
+[ext_resource type="Shader" path="res://Grass/grassparticle.gdshader" id="3_c3y0r"]
 [ext_resource type="PackedScene" uid="uid://d0susb7s0u31u" path="res://Grass/GrassParticles.tscn" id="4_qqfpk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3e5am"]
+shader = ExtResource("3_c3y0r")
+shader_parameter/scale_min = 0.2
+shader_parameter/scale_max = 0.2
+shader_parameter/rows = 10.0
+shader_parameter/spacing = 4.0
 
 [node name="Grass" type="Node2D"]
 script = ExtResource("1_eqxy3")
 
 [node name="GrassParticles" parent="." instance=ExtResource("4_qqfpk")]
-amount = 2000
+amount = 20000
+process_material = SubResource("ShaderMaterial_3e5am")
 fixed_fps = 60
 draw_order = 0
