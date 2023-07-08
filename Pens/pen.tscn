@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7qbpjjlhkriy"]
+[gd_scene load_steps=13 format=3 uid="uid://c7qbpjjlhkriy"]
 
 [ext_resource type="Script" path="res://Pens/pen.gd" id="1_7mwsl"]
 [ext_resource type="Script" path="res://Pens/MenuButton.gd" id="3_p6abr"]
@@ -62,6 +62,7 @@ position = Vector2(86, 116)
 
 [node name="FenceVert2" parent="." instance=ExtResource("6_8p6ws")]
 position = Vector2(106.405, -79)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
