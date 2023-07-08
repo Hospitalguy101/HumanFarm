@@ -13,4 +13,3 @@ func _process(delta):
 		disabled = true;
 	else:
 		disabled = false;
-	print(disabled);

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7qbpjjlhkriy"]
+[gd_scene load_steps=11 format=3 uid="uid://c7qbpjjlhkriy"]
 
 [ext_resource type="Script" path="res://Pens/pen.gd" id="1_7mwsl"]
 [ext_resource type="Texture2D" uid="uid://d3ur7dtdhsk6a" path="res://waa.png" id="2_ss6kb"]
@@ -6,8 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://ox50nsi7ead6" path="res://Pens/tv_room.tscn" id="4_yhyyk"]
 [ext_resource type="PackedScene" uid="uid://h4m4qc40arsa" path="res://Pens/exercise_room.tscn" id="5_qbs1m"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgmqi"]
+size = Vector2(215.5, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xtbx"]
+size = Vector2(3, 215)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pd2x"]
+size = Vector2(214, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ecbl"]
+size = Vector2(3, 214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpiwp"]
+size = Vector2(215, 216)
+
 [node name="Pen" type="Node2D"]
 script = ExtResource("1_7mwsl")
+metadata/_edit_horizontal_guides_ = [-15.0]
 
 [node name="Outline" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -36,6 +52,37 @@ position = Vector2(160, 55)
 scale = Vector2(0.5, 0.5)
 
 [node name="ExerciseRoom" parent="." instance=ExtResource("5_qbs1m")]
-visible = false
 position = Vector2(160, -53)
 scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.75, -105)
+shape = SubResource("RectangleShape2D_qgmqi")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-106.5, 2.5)
+shape = SubResource("RectangleShape2D_4xtbx")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(1, 108.5)
+shape = SubResource("RectangleShape2D_2pd2x")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(106.5, 3)
+shape = SubResource("RectangleShape2D_8ecbl")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_lpiwp")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

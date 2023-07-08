@@ -36,7 +36,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	var garden = get_parent().get_parent();
 	for f in garden.farmers:
 		if f == "tom":
@@ -90,7 +90,7 @@ func Idle(delta):
 		Change = randf_range(1,4)
 		randIdle = randi_range(0,3)
 
-	if randIdle == 3:
+	if randIdle == 3 and activity == "none":
 		State = WALK
 	move_and_slide()
 
@@ -98,7 +98,14 @@ func Grabbed():
 	self.global_position = get_global_mouse_position()
 	if Input.is_action_just_released("Click"):
 		$HumanInfoMenu.visible = !$HumanInfoMenu.visible;
-		State = WALK
+		State = IDLE
+		if get_parent().get_node("ExerciseRoom").visible:
+			if position.x > 112 and position.x < 214 and position.y < -3 and position.y > -105:
+				position.x = 160;
+				position.y = -53;
+		elif position.x < -100 or position.x > 100 or position.y > 100 or position.y < -100:
+			position.x = 0;
+			position.y = 0;
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
