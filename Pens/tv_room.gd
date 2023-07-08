@@ -8,7 +8,7 @@ var damageFactor = 1;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide() # Replace with function body.
-	garden = get_tree().get_root().get_child(1);
+	garden = get_parent().get_parent();
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

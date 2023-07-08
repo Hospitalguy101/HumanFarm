@@ -17,8 +17,6 @@ var clickTimer
 var activity = "none";
 var hasTom = false;
 
-var garden;
-
 var State = WALK
 var Speed = randi_range(25, 45)
 var directionX = randf_range(-1,1)
@@ -29,7 +27,6 @@ var deathTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	garden = get_tree().get_root().get_child(1);
 	deathTimer = 300.0
 	health = 5;
 	happiness = 1;
@@ -40,6 +37,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var garden = get_parent().get_parent();
 	for f in garden.farmers:
 		if f == "tom":
 			hasTom = true;
