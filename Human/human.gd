@@ -3,9 +3,14 @@ extends Node2D
 var health;
 var happiness;
 var growth;
+var activity = "none";
+var hasTom = false;
+
+var garden;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	garden = get_tree().get_root().get_child(1);
 	health = 5;
 	happiness = 1;
 	growth = 0;
@@ -15,7 +20,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	growth += 1 * health * delta;
+	for f in garden.farmers:
+		if f == "tom":
+			hasTom = true;
+	
+	if activity == "none": 
+		if hasTom:
+			growth += 3 * health * delta;
+		else:
+			growth += 2 * health * delta;
+	else: growth += health * delta;
 	#if it is fully grown, it starts losing health slowly (eventually dies)
 	if growth > 500:
 		health -= delta;
@@ -38,7 +52,8 @@ func _on_button_pressed():
 		happiness += 5;
 		garden.selecting = false;
 	elif garden.selectGoal == "Human":
-		health -= 5;
+		if !garden.hasGrill: health -= 5;
+		else: health += 10
 		happiness -= 5;
 		garden.selecting = false;
 		garden.humanFlesh -= 1;

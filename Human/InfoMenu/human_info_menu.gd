@@ -17,3 +17,4 @@ func _on_kill_button_pressed():
 		if n.is_in_group("human"):
 			n.happiness -= 5;
 	pen.get_parent().humanFlesh += 1;
+	get_parent().queue_free();

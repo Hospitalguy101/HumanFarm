@@ -1,7 +1,8 @@
 extends Node2D
 
 const humanPath = preload("res://Human/human.tscn");
-var human #TEMP
+var beds = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#TEMP:
@@ -15,7 +16,4 @@ func _process(delta):
 func addHuman():
 	var newHuman = humanPath.instantiate();
 	add_child(newHuman);
-	human = newHuman
-
-func removeHuman(human):
-	remove_child(human);
+	if beds: newHuman.health += 5;

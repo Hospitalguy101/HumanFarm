@@ -72,10 +72,14 @@ text = "Shop"
 script = ExtResource("4_tsplh")
 metadata/_edit_use_anchors_ = true
 
+[connection signal="cactus_button_pressed" from="Shop" to="." method="_on_shop_cactus_button_pressed"]
+[connection signal="coffee_button_pressed" from="Shop" to="." method="_on_shop_coffee_button_pressed"]
 [connection signal="grill_button_pressed" from="Shop" to="." method="_on_shop_grill_button_pressed"]
 [connection signal="healthy_button_pressed" from="Shop" to="." method="_on_shop_healthy_button_pressed"]
 [connection signal="junk_button_pressed" from="Shop" to="." method="_on_shop_junk_button_pressed"]
 [connection signal="shovel_button_pressed" from="Shop" to="." method="_on_shop_shovel_button_pressed"]
+[connection signal="tomato_button_pressed" from="Shop" to="." method="_on_shop_tomato_button_pressed"]
+[connection signal="tulip_button_pressed" from="Shop" to="." method="_on_shop_tulip_button_pressed"]
 [connection signal="pressed" from="HumanFoodButton" to="." method="_on_human_food_button_pressed"]
 [connection signal="pressed" from="GridContainer/BuyHumanButton" to="." method="_on_buy_human_button_pressed"]
 [connection signal="pressed" from="GridContainer/ShopButton" to="." method="_on_shop_button_pressed"]

@@ -5,7 +5,7 @@
 [node name="Shop" type="PopupPanel"]
 title = "Shop"
 initial_position = 1
-size = Vector2i(298, 80)
+size = Vector2i(298, 162)
 visible = true
 borderless = false
 script = ExtResource("1_75ioi")
@@ -19,7 +19,7 @@ anchor_bottom = 0.5
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 294.0
-offset_bottom = 76.0
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
@@ -38,11 +38,31 @@ text = "Junk Food (ƥ20)"
 layout_mode = 2
 text = "Shovel (ƥ50)"
 
-[node name="Grill Button" type="Button" parent="GridContainer"]
+[node name="GrillButton" type="Button" parent="GridContainer"]
 layout_mode = 2
 text = "Grill (ƥ100)"
+
+[node name="TulipButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Tulip"
+
+[node name="CactusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Cactus"
+
+[node name="TomatoButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Tomato"
+
+[node name="CoffeeButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Coffee Bean"
 
 [connection signal="pressed" from="GridContainer/HealthyButton" to="." method="_on_healthy_button_pressed"]
 [connection signal="pressed" from="GridContainer/JunkButton" to="." method="_on_junk_button_pressed"]
 [connection signal="pressed" from="GridContainer/ShovelButton" to="." method="_on_shovel_button_pressed"]
-[connection signal="pressed" from="GridContainer/Grill Button" to="." method="_on_grill_button_pressed"]
+[connection signal="pressed" from="GridContainer/GrillButton" to="." method="_on_grill_button_pressed"]
+[connection signal="pressed" from="GridContainer/TulipButton" to="." method="_on_tulip_button_pressed"]
+[connection signal="pressed" from="GridContainer/CactusButton" to="." method="_on_cactus_button_pressed"]
+[connection signal="pressed" from="GridContainer/TomatoButton" to="." method="_on_tomato_button_pressed"]
+[connection signal="pressed" from="GridContainer/CoffeeButton" to="." method="_on_coffee_button_pressed"]

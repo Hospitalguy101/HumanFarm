@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7qbpjjlhkriy"]
+[gd_scene load_steps=6 format=3 uid="uid://c7qbpjjlhkriy"]
 
 [ext_resource type="Script" path="res://Pens/pen.gd" id="1_7mwsl"]
 [ext_resource type="Texture2D" uid="uid://d3ur7dtdhsk6a" path="res://waa.png" id="2_ss6kb"]
 [ext_resource type="Script" path="res://Pens/MenuButton.gd" id="3_p6abr"]
 [ext_resource type="PackedScene" uid="uid://ox50nsi7ead6" path="res://Pens/tv_room.tscn" id="4_yhyyk"]
+[ext_resource type="PackedScene" uid="uid://h4m4qc40arsa" path="res://Pens/exercise_room.tscn" id="5_qbs1m"]
 
 [node name="Pen" type="Node2D"]
 script = ExtResource("1_7mwsl")
@@ -18,16 +19,23 @@ offset_top = -126.0
 offset_right = 129.0
 offset_bottom = -95.0
 text = "+"
-item_count = 3
+item_count = 4
 popup/item_0/text = "Upgrade Walls (ƥ300)"
 popup/item_0/id = 0
 popup/item_1/text = "Add TV Room (ƥ300)"
 popup/item_1/id = 1
-popup/item_2/text = "Add Treadmill (ƥ150)"
+popup/item_2/text = "Add Exercise Room (ƥ150)"
 popup/item_2/id = 2
+popup/item_3/text = "Add Beds"
+popup/item_3/id = 3
 script = ExtResource("3_p6abr")
 
 [node name="TVRoom" parent="." instance=ExtResource("4_yhyyk")]
 visible = false
-position = Vector2(161, 55)
+position = Vector2(160, 55)
+scale = Vector2(0.5, 0.5)
+
+[node name="ExerciseRoom" parent="." instance=ExtResource("5_qbs1m")]
+visible = false
+position = Vector2(160, -53)
 scale = Vector2(0.5, 0.5)
