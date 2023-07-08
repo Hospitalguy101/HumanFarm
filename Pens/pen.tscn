@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7qbpjjlhkriy"]
+[gd_scene load_steps=13 format=3 uid="uid://c7qbpjjlhkriy"]
 
 [ext_resource type="Script" path="res://Pens/pen.gd" id="1_7mwsl"]
-[ext_resource type="Texture2D" uid="uid://d3ur7dtdhsk6a" path="res://waa.png" id="2_ss6kb"]
 [ext_resource type="Script" path="res://Pens/MenuButton.gd" id="3_p6abr"]
 [ext_resource type="PackedScene" uid="uid://ox50nsi7ead6" path="res://Pens/tv_room.tscn" id="4_yhyyk"]
+[ext_resource type="PackedScene" uid="uid://dtd5nch4onukg" path="res://fence.tscn" id="5_gd3hw"]
 [ext_resource type="PackedScene" uid="uid://h4m4qc40arsa" path="res://Pens/exercise_room.tscn" id="5_qbs1m"]
+[ext_resource type="PackedScene" uid="uid://ohmadf5olk8r" path="res://fence_vert.tscn" id="6_8p6ws"]
 [ext_resource type="Script" path="res://Pens/AvgHappiness.gd" id="6_b42xv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgmqi"]
@@ -25,10 +26,6 @@ size = Vector2(215, 216)
 [node name="Pen" type="Node2D"]
 script = ExtResource("1_7mwsl")
 metadata/_edit_horizontal_guides_ = [-15.0]
-
-[node name="Outline" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ss6kb")
 
 [node name="MenuButton" type="MenuButton" parent="."]
 offset_left = 93.0
@@ -55,6 +52,16 @@ scale = Vector2(0.5, 0.5)
 [node name="ExerciseRoom" parent="." instance=ExtResource("5_qbs1m")]
 position = Vector2(160, -53)
 scale = Vector2(0.5, 0.5)
+
+[node name="Fence" parent="." instance=ExtResource("5_gd3hw")]
+
+[node name="Fence2" parent="." instance=ExtResource("5_gd3hw")]
+position = Vector2(86, 116)
+
+[node name="FenceVert" parent="." instance=ExtResource("6_8p6ws")]
+
+[node name="FenceVert2" parent="." instance=ExtResource("6_8p6ws")]
+position = Vector2(106.405, -79)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

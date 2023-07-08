@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtd5nch4onukg"]
+
+[ext_resource type="Texture2D" uid="uid://c1m5sl4nvgjq" path="res://Pens/Untitled_Artwork 67.png" id="1_secar"]
+[ext_resource type="Texture2D" uid="uid://e8e171vubr5a" path="res://Pens/Untitled_Artwork 68.png" id="2_7pxuc"]
+
+[node name="Fence" type="Sprite2D"]
+position = Vector2(86, -94)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_secar")
+
+[node name="UntitledArtwork70" type="Sprite2D" parent="."]
+position = Vector2(-630, 0)
+scale = Vector2(1, 1)
+texture = ExtResource("2_7pxuc")
+
+[node name="UntitledArtwork68" type="Sprite2D" parent="."]
+position = Vector2(-210, 0)
+scale = Vector2(1, 1)
+texture = ExtResource("2_7pxuc")
+
+[node name="UntitledArtwork69" type="Sprite2D" parent="."]
+position = Vector2(-420, 3.05176e-05)
+scale = Vector2(1, 1)
+texture = ExtResource("2_7pxuc")
+
+[node name="UntitledArtwork71" type="Sprite2D" parent="."]
+position = Vector2(-840, 3.05176e-05)
+scale = Vector2(1, 1)
+texture = ExtResource("2_7pxuc")

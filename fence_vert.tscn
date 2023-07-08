@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://ohmadf5olk8r"]
+
+[ext_resource type="Texture2D" uid="uid://1plyklgcbih" path="res://Pens/Untitled_Artwork 70.png" id="1_6ifwb"]
+
+[node name="FenceVert" type="Sprite2D"]
+position = Vector2(-103, -79)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork71" type="Sprite2D" parent="."]
+position = Vector2(-6.10352e-05, 105)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork72" type="Sprite2D" parent="."]
+position = Vector2(-6.10352e-05, 215)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork73" type="Sprite2D" parent="."]
+position = Vector2(0, 320)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork74" type="Sprite2D" parent="."]
+position = Vector2(0, 430)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork75" type="Sprite2D" parent="."]
+position = Vector2(0, 540)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork76" type="Sprite2D" parent="."]
+position = Vector2(0, 635)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork77" type="Sprite2D" parent="."]
+position = Vector2(-6.10352e-05, 740)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork78" type="Sprite2D" parent="."]
+position = Vector2(-6.10352e-05, 850)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
+
+[node name="UntitledArtwork79" type="Sprite2D" parent="."]
+position = Vector2(-6.10352e-05, 945)
+scale = Vector2(1, 1)
+texture = ExtResource("1_6ifwb")
