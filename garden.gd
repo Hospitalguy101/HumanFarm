@@ -16,6 +16,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+
+func endGame(reason):
+	if reason == "revolution":
+		$EndScreen/Title.text = "YOUR HUMANS REVOLTED!";
+		$EndScreen/Buttons/Description.text = "Your humans were too unhappy and broke through the gate! They managed to escape your farm and contact the authorities. You wont be seeing anyhting but the inside of a jail cell for a long time.";
+	$EndScreen.visible = true;
 
 
 func _on_buy_human_button_pressed():
@@ -24,6 +31,7 @@ func _on_buy_human_button_pressed():
 	else:
 		energy -= 400;
 		get_node("Pen").addHuman();
+		
 
 
 func _on_human_food_button_pressed():

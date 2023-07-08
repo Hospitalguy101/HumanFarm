@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=7 format=3 uid="uid://c7qbpjjlhkriy"]
-
+[gd_scene load_steps=12 format=3 uid="uid://c7qbpjjlhkriy"]
 
 [ext_resource type="Script" path="res://Pens/pen.gd" id="1_7mwsl"]
 [ext_resource type="Script" path="res://Pens/MenuButton.gd" id="3_p6abr"]
@@ -8,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtd5nch4onukg" path="res://fence.tscn" id="5_gd3hw"]
 [ext_resource type="PackedScene" uid="uid://h4m4qc40arsa" path="res://Pens/exercise_room.tscn" id="5_qbs1m"]
 [ext_resource type="PackedScene" uid="uid://ohmadf5olk8r" path="res://fence_vert.tscn" id="6_8p6ws"]
+[ext_resource type="Script" path="res://Pens/AvgHappiness.gd" id="6_b42xv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgmqi"]
 size = Vector2(215.5, 3)
@@ -92,5 +91,13 @@ shape = SubResource("RectangleShape2D_8ecbl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_lpiwp")
+
+[node name="AvgHappiness" type="Label" parent="."]
+offset_left = -71.0
+offset_top = 111.0
+offset_right = 86.0
+offset_bottom = 137.0
+text = "Average Happiness: "
+script = ExtResource("6_b42xv")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

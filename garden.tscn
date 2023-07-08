@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bukxt65010b5r"]
+[gd_scene load_steps=11 format=3 uid="uid://bukxt65010b5r"]
 
 [ext_resource type="Script" path="res://garden.gd" id="1_i13sx"]
 [ext_resource type="Texture2D" uid="uid://bjvgs0rbopem8" path="res://Untitled_Artwork-1 7.png" id="3_urdfx"]
@@ -124,6 +124,9 @@ position = Vector2(446, 84)
 [node name="temp cam" type="Camera2D" parent="."]
 enabled = false
 zoom = Vector2(1.5, 1.5)
+
+[node name="EndScreen" parent="." instance=ExtResource("9_iuu1q")]
+visible = false
 
 [connection signal="cactus_button_pressed" from="Shop" to="." method="_on_shop_cactus_button_pressed"]
 [connection signal="coffee_button_pressed" from="Shop" to="." method="_on_shop_coffee_button_pressed"]

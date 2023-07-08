@@ -2,16 +2,28 @@ extends Node2D
 
 const humanPath = preload("res://Human/human.tscn");
 var beds = false;
+var avgHappiness;
+var wallLevel = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#TEMP:
 	addHuman();
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var happySum = 0;
+	var numHumans = 0;
+	for h in get_children():
+		if h.is_in_group("human"):
+			happySum += h.happiness;
+			numHumans += 1;
+	avgHappiness = happySum/numHumans;
+	
+	#Revolution lose con
+	if (avgHappiness < 0 and wallLevel <= 2 and numHumans > 8):
+		get_parent().endGame("revolution");
+		print("A")
 
 func addHuman():
 	var newHuman = humanPath.instantiate();

@@ -29,7 +29,7 @@ var deathTimer
 func _ready():
 	deathTimer = 300.0
 	health = 5;
-	happiness = 1;
+	happiness = -8;
 	growth = 0;
 	position.x = randf_range(-20, 20)
 	position.y = randf_range(-20, 20)
