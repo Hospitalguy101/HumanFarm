@@ -85,7 +85,6 @@ script = ExtResource("4_tsplh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Crusher" parent="." instance=ExtResource("7_t58f8")]
-position = Vector2(446, 84)
 
 [node name="temp cam" type="Camera2D" parent="."]
 enabled = false
@@ -93,6 +92,33 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="EndScreen" parent="." instance=ExtResource("9_iuu1q")]
 visible = false
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+offset_left = -391.0
+offset_top = -122.0
+offset_right = 401.0
+offset_bottom = 136.0
+mouse_filter = 2
+theme_override_constants/h_separation = 650
+theme_override_constants/v_separation = 200
+columns = 2
+
+[node name="Control" type="Control" parent="GridContainer2"]
+layout_mode = 2
+
+[node name="Pen2Button" type="Button" parent="GridContainer2"]
+layout_mode = 2
+text = "Buy Pen"
+
+[node name="Pen3Button" type="Button" parent="GridContainer2"]
+visible = false
+layout_mode = 2
+text = "Buy Pen"
+
+[node name="Pen4Button" type="Button" parent="GridContainer2"]
+visible = false
+layout_mode = 2
+text = "Buy Pen"
 
 [connection signal="cactus_button_pressed" from="Shop" to="." method="_on_shop_cactus_button_pressed"]
 [connection signal="coffee_button_pressed" from="Shop" to="." method="_on_shop_coffee_button_pressed"]
@@ -105,3 +131,6 @@ visible = false
 [connection signal="pressed" from="HumanFoodButton" to="." method="_on_human_food_button_pressed"]
 [connection signal="pressed" from="GridContainer/BuyHumanButton" to="." method="_on_buy_human_button_pressed"]
 [connection signal="pressed" from="GridContainer/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="GridContainer2/Pen2Button" to="." method="_on_pen_2_button_pressed"]
+[connection signal="pressed" from="GridContainer2/Pen3Button" to="." method="_on_pen_3_button_pressed"]
+[connection signal="pressed" from="GridContainer2/Pen4Button" to="." method="_on_pen_4_button_pressed"]
