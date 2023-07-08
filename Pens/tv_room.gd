@@ -20,20 +20,20 @@ func _process(delta):
 			hasCac = true;
 	#cac prevents all damage
 	if hasCac: damageFactor = 1;
-	if human:
+	if human and visible:
 		if hasTul: human.happiness += delta * 1.5 * damageFactor;
 		else: human.happiness += delta * damageFactor;
 
 
 func _on_area_2d_area_entered(area):
 	if !human:
-		if area.get_parent().group == "human":
+		if area.get_parent().is_in_group("human"):
 			human = area.get_parent();
 			area.get_parent().activity = "tv";
 
 
 func _on_area_2d_area_exited(area):
 	if human:
-		if area.get_parent().group == "human":
+		if area.get_parent().is_in_group("human"):
 			human = null;
 			area.get_parent().activity = "none";

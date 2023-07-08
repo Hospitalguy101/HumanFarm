@@ -18,20 +18,20 @@ func _process(delta):
 			hasCof = true;
 		elif f == "cac":
 			hasCac = true;
-	if human:
+	if human and visible:
 		if hasCof: garden.energy += delta * 1.5 * damageFactor;
 		else: garden.energy += delta * damageFactor;
 
 
 func _on_area_2d_area_entered(area):
 	if !human:
-		if area.get_parent().group == "human":
+		if area.get_parent().is_in_group("human"):
 			human = area.get_parent();
 			area.get_parent().activity = "exercise";
 
 
 func _on_area_2d_area_exited(area):
 	if human:
-		if area.get_parent().group == "human":
+		if area.get_parent().is_in_group("human"):
 			human = null;
 			area.get_parent().activity = "none";
