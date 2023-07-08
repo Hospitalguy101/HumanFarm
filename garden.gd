@@ -9,6 +9,8 @@ var humanFlesh = 0;
 var farmers = []
 var hasGrill = false;
 
+var penPath = preload("res://Pens/pen.tscn");
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -75,3 +77,37 @@ func _on_shop_tomato_button_pressed():
 
 func _on_shop_tulip_button_pressed():
 	farmers.add("tul");
+
+
+func _on_pen_2_button_pressed():
+	$GridContainer2/Pen3Button.visible = true;
+	$GridContainer2/Pen2Button.queue_free();
+	var newNode = $GridContainer2/Control.duplicate();
+	$GridContainer2.add_child(newNode);
+	$GridContainer2.move_child(newNode, 1);
+	
+	var newPen = penPath.instantiate();
+	add_child(newPen);
+	newPen.position.x = 387;
+	newPen.position.y = -126;
+
+func _on_pen_3_button_pressed():
+	$GridContainer2/Pen4Button.visible = true;
+	$GridContainer2/Pen3Button.queue_free();
+	var newNode = $GridContainer2/Control.duplicate();
+	$GridContainer2.add_child(newNode);
+	$GridContainer2.move_child(newNode, 1);
+	
+	var newPen = penPath.instantiate();
+	add_child(newPen);
+	newPen.position.x = -387;
+	newPen.position.y = 126;
+
+
+func _on_pen_4_button_pressed():
+	$GridContainer2/Pen4Button.queue_free();
+	
+	var newPen = penPath.instantiate();
+	add_child(newPen);
+	newPen.position.x = 387;
+	newPen.position.y = 126;
